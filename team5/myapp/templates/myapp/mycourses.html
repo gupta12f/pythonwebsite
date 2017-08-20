@@ -1,0 +1,23 @@
+{% extends 'myapp/base.html' %}
+
+{% block body_block %}
+    {% if flag == 1 %}
+    You are not a valid User
+    {% endif %}
+    {%  if flag == 0 %}
+    {% if course %}
+        <h2>List of Courses</h2>
+        <ol>
+            {% for c  in course %}
+                <li> <a href="/myapp/{{ c.course_no }}" >{{ c.title}}</a> </li>
+            {% endfor %}
+        </ol>
+
+        {% block mycourse %} {% endblock %}
+
+    {% endif %}
+
+ {% endif %}
+{# <h3><a href="{%url 'myapp:about' %}">About page</a></h3>#}
+
+{% endblock %}
